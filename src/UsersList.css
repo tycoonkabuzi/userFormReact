@@ -1,0 +1,27 @@
+.usersList {
+  border: 1px solid;
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+}
+.usersList form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.usersList form input {
+  width: 40%;
+}
+.usersList form label {
+  width: 50%;
+  text-align: left;
+}
+button {
+  border: none;
+  background-color: rgb(94, 50, 50);
+  color: white;
+  font-size: 13px;
+  padding: 10px 20px;
+  margin: auto;
+  margin-top: 40px;
+}
