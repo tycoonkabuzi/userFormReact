@@ -3,6 +3,7 @@
   padding: 20px;
   max-width: 600px;
   margin: auto;
+  box-sizing: border-box;
 }
 .usersList form {
   display: flex;
@@ -24,4 +25,10 @@ button {
   padding: 10px 20px;
   margin: auto;
   margin-top: 40px;
+}
+button:hover {
+  background-color: rgb(66, 35, 35);
+}
+select {
+  width: 100%;
 }
