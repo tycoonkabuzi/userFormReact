@@ -1,10 +1,22 @@
 .main {
+  border: 1px rgb(210, 210, 210) solid;
+  max-width: 600px;
+  padding: 20px 40px;
+  margin: auto;
+  margin-top: 20px;
+  box-sizing: border-box;
+}
+.main-list {
   color: rgb(102, 102, 102);
   box-sizing: border-box;
-  width: 600px;
+  width: 100%;
   border: 1px rgb(210, 210, 210) solid;
   padding: 20px 40px;
   text-align: left;
   margin: auto;
   margin-top: 20px;
+}
+.main-list:hover {
+  background-color: rgb(117, 97, 97);
+  color: white;
 }

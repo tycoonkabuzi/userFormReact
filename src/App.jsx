@@ -19,7 +19,10 @@ function App() {
         setFormData={setFormData}
         setFormDataArray={setFormDataArray}
       />
-      <DisplayUserData formDataArray={formDataArray} />
+      <DisplayUserData
+        formDataArray={formDataArray}
+        setFormDataArray={setFormDataArray}
+      />
     </>
   );
 }
