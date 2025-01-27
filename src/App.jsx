@@ -1,5 +1,3 @@
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import UsersList from "./UsersList";
 import DisplayUserData from "./DisplayUserData";
@@ -17,6 +15,7 @@ function App() {
       <UsersList
         formData={formData}
         setFormData={setFormData}
+        formDataArray={formDataArray}
         setFormDataArray={setFormDataArray}
       />
       <DisplayUserData

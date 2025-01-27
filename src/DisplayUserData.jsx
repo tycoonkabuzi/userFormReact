@@ -1,13 +1,15 @@
 import { useState } from "react";
 import "./DisplayUserData.css";
+import { useEffect } from "react";
 const DisplayUserData = ({ formDataArray, setFormDataArray }) => {
   //console.log(Array.isArray(formDataArray));
-  const [gather, setGather] = useState([]);
-  const deleteListElement = (theIndex) => {
-    const updatedArray = formDataArray.slice();
-    updatedArray.splice(theIndex, 1);
-    setFormDataArray(updatedArray);
-  };
+  const [gather, setGather] = useState(formDataArray);
+
+  useEffect(() => {
+    setGather(formDataArray);
+    console.log();
+  }, [formDataArray]);
+  console.log(formDataArray);
   const filterValues = (action) => {
     if (action == "admin") {
       const adminsArray = formDataArray.filter(
@@ -20,19 +22,26 @@ const DisplayUserData = ({ formDataArray, setFormDataArray }) => {
       );
       setGather(adminsArray);
     } else {
-      gather(formDataArray);
+      setGather(formDataArray);
     }
+  };
+  const deleteListElement = (theId) => {
+    const updatedArray = formDataArray.slice();
+    updatedArray.splice(theId, 1);
+    setFormDataArray(updatedArray);
+    console.log(updatedArray);
+    console.log(theId);
   };
   return (
     <div className="main">
       <button onClick={() => filterValues("admin")}>Show only admins</button>
       <button onClick={() => filterValues("standard")}>Show only users</button>
-      <button>Show all</button>
+      <button onClick={filterValues}>Show all</button>
       {gather.map((formElement, index) => (
         <div
           className="main-list"
           key={index}
-          onClick={() => deleteListElement(index)}
+          onClick={() => deleteListElement(formElement.id)}
         >
           <p>Username: {formElement.username}</p>
           <p>Email: {formElement.email} </p>
