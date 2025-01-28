@@ -26,6 +26,7 @@ const DisplayUserData = ({ formDataArray, setFormDataArray }) => {
   // delete item by cliking on it we select the element based on the id, we find the id in the formDataArray, we create a new array copying the formDataArray, so that we can modify it, delete elements in side.
   const deleteListElement = (theId) => {
     const indexToDelete = formDataArray.findIndex((item) => item.id === theId);
+    console.log(indexToDelete);
     if (indexToDelete !== -1) {
       const updatedArray = formDataArray.slice();
       updatedArray.splice(indexToDelete, 1);
