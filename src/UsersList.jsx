@@ -21,7 +21,8 @@ const UsersList = ({
   const saveData = (e) => {
     e.preventDefault();
     const theId = formDataArray.length;
-    const updatedData = { ...formData, id: theId };
+    const updatedData = { ...formData, id: theId + 1 };
+
     setFormDataArray((prev) => {
       return [...prev, updatedData];
     });

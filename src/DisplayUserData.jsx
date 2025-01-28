@@ -6,7 +6,6 @@ const DisplayUserData = ({ formDataArray, setFormDataArray }) => {
 
   useEffect(() => {
     setGather(formDataArray);
-    console.log();
   }, [formDataArray]);
 
   // this filters based on the button clicked based on the value of the selection (either admin or standard) and modify the gather value with the new array
@@ -22,27 +21,27 @@ const DisplayUserData = ({ formDataArray, setFormDataArray }) => {
         (item) => item.select === "Standard"
       );
       setGather(standardArray);
-    } else {
-      setGather(formDataArray);
     }
   };
   // delete item by cliking on it we select the element based on the id, we find the id in the formDataArray, we create a new array copying the formDataArray, so that we can modify it, delete elements in side.
   const deleteListElement = (theId) => {
-    const updatedArray = formDataArray.slice();
-    updatedArray.splice(theId, 1);
-    setFormDataArray(updatedArray);
-    console.log(updatedArray);
+    const indexToDelete = formDataArray.findIndex((item) => item.id === theId);
+    if (indexToDelete !== -1) {
+      const updatedArray = formDataArray.slice();
+      updatedArray.splice(indexToDelete, 1);
+      setFormDataArray(updatedArray);
+    }
   };
 
   return (
     <div className="main">
       <button onClick={() => filterValues("admin")}>Show only admins</button>
       <button onClick={() => filterValues("standard")}>Show only users</button>
-      <button onClick={filterValues}>Show all</button>
-      {gather.map((formElement, index) => (
+      <button onClick={() => filterValues()}>Show all</button>
+      {gather.map((formElement) => (
         <div
           className="main-list"
-          key={index}
+          key={formElement.id}
           onClick={() => deleteListElement(formElement.id)}
         >
           <p>Username: {formElement.username}</p>
